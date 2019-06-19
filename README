@@ -7,20 +7,10 @@ Online documentation can be found at http://buildroot.org/docs.html
 
 To build and use the buildroot stuff, do the following:
 
-1) run 'make menuconfig'
-2) select the target architecture and the packages you wish to compile
-3) run 'make'
-4) wait while it compiles
-5) find the kernel, bootloader, root filesystem, etc. in output/images
+# 100sk_am335x board
 
-You do not need to be root to build or run buildroot.  Have fun!
-
-Buildroot comes with a basic configuration for a number of boards. Run
-'make list-defconfigs' to view the list of provided configurations.
-
-Please feed suggestions, bug reports, insults, and bribes back to the
-buildroot mailing list: buildroot@buildroot.org
-You can also find us on #buildroot on Freenode IRC.
-
-If you would like to contribute patches, please read
-https://buildroot.org/manual.html#submitting-patches
+ 1) run 'make 100ask_am335x_defconfig'
+ 2) run 'make  -jN' N represents the number of CPU cores
+ 3) run 'make menuconfig '
+ 4) wait while it compiles
+ 5) find the kernel, bootloader, root filesystem, etc. in output/images
