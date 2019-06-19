@@ -10,3 +10,4 @@
 #optargs=video=HDMI-A-1:800x600
 # Uncomment the following line to enable HDMI display and disable LCD display.
 fdtfile=100ask-am335x.dtb
+bootpart=1:2
