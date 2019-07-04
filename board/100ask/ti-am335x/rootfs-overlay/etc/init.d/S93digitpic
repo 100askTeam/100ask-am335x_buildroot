@@ -1,4 +1,14 @@
 #!/bin/sh
+#
+#Start digitpic ...
+#
+
+TOUCH=$(cat /sys/class/input/input0/name)
+GOODIX=goodix-ts
+
+start() {
+if [ $TOUCH  = $GOODIX ]
+then
 
 #Prohibit display of cursor
 echo -e "\033[?25l"  > /dev/tty1
@@ -15,7 +25,34 @@ if [ ! -e /etc/pointercal ]
 then
         /usr/bin/ts_calibrate
 fi
-
-
 digitpic /home/MSYH.TTF &
+else
+        echo lcd not found!
+        exit
+fi
+
+}
+stop() {
+
+killall digitpic /home/MSYH.TTF
+
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart|reload)
+        stop
+        start
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit $?
 
